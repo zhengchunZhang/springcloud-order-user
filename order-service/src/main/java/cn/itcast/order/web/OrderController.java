@@ -25,7 +25,7 @@ public class OrderController {
         // 根据id查询订单并返回
         Order order = orderService.queryOrderById(orderId);
         //利用restTemplate发起请求 查询用户
-        User user = restTemplate.getForObject("http://localhost:8081/user/" + order.getUserId(), User.class);
+        User user = restTemplate.getForObject("http://userservice/user/" + order.getUserId(), User.class);
         order.setUser(user);
         return order;
     }
