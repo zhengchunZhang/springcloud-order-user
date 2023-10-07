@@ -14,12 +14,12 @@ public class OrderApplication {
         SpringApplication.run(OrderApplication.class, args);
     }
 
-//    /**
-//     * 创建restTemplate对象并且注入容器，并利用它来发送http请求
-//     * @return
-//     */
-//    @Bean
-//    public RestTemplate restTemplate(){
-//        return  new RestTemplate();
-//    }
+    /**
+     * 创建restTemplate对象并且注入容器，并利用它来发送http请求
+     * @return
+     */
+    @Bean
+    public RestTemplate restTemplate(){
+        return  new RestTemplate();
+    }
 }

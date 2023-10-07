@@ -17,18 +17,16 @@ public class OrderController {
    @Autowired
    private OrderService orderService;
 
-//   @Autowired
-//   private RestTemplate restTemplate;
+   @Autowired
+   private RestTemplate restTemplate;
 
     @GetMapping("{orderId}")
     public Order queryOrderByUserId(@PathVariable("orderId") Long orderId) {
         // 根据id查询订单并返回
-//        Order order = orderService.queryOrderById(orderId);
-//        //利用restTemplate发起请求 查询用户
-//        User user = restTemplate.getForObject("http://localhost:8081/user/" + order.getUserId(), User.class);
-//        order.setUser(user);
-//        return order;
-
-        return orderService.queryOrderById(orderId);
+        Order order = orderService.queryOrderById(orderId);
+        //利用restTemplate发起请求 查询用户
+        User user = restTemplate.getForObject("http://localhost:8081/user/" + order.getUserId(), User.class);
+        order.setUser(user);
+        return order;
     }
 }
