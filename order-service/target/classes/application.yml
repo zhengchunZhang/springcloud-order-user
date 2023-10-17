@@ -11,6 +11,10 @@ spring:
   cloud:
     nacos:
       server-addr: localhost:8848 #nacos服务地址
+      discovery:
+        cluster-name: HZ
+        namespace: 8400a153-e23c-4a51-b3a2-b2cd4f81e0d6 #dev环境
+        ephemeral: false #是否是临时实例
 mybatis:
   type-aliases-package: cn.itcast.user.pojo
   configuration:
@@ -27,7 +31,7 @@ logging:
 # 负载均衡规则
 userservice:
   ribbon:
-    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
+    NFLoadBalancerRuleClassName: com.alibaba.cloud.nacos.ribbon.NacosRule
 
 ribbon:
   eager-load:
